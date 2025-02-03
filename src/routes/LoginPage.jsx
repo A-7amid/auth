@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { users } from "../dummydata";
+import { useUser } from "../context/user";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [token, setToken] = useState("");
+  const { handleLogin } = useUser();
 
-  const navigate = useNavigate();
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData(document.getElementById("form"));
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const formData = new FormData(document.getElementById("form"));
-
-    users.filter((user) => {
-      if (
-        user.email == formData.get("email") &&
-        user.password == formData.get("password")
-      ) {
-        navigate("/");
-      } else {
-      }
-    });
-  };
-
+  //   users.filter((user) => {
+  //     if (
+  //       user.email == formData.get("email") &&
+  //       user.password == formData.get("password")
+  //     ) {
+  //       navigate("/");
+  //       localStorage.setItem(`token`, user.token);
+  //     } else {
+  //     }
+  //   });
+  // };
   return (
     <div className="flex items-center justify-center h-screen">
       <form
